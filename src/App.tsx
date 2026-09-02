@@ -261,6 +261,22 @@ function App() {
           </div>
         </section>
 
+        <section className="mx-auto max-w-[1440px] px-4 py-14 lg:px-8 lg:py-20">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div><p className="text-[10px] font-black uppercase tracking-[0.22em] text-[#b36a00]">A closer look</p><h2 className="mt-2 font-serif text-3xl sm:text-4xl">The bottle edit</h2></div>
+            <button onClick={() => selectCategory('All perfumes')} className="hidden items-center gap-1 border-b border-slate-900 pb-1 text-xs font-black sm:flex">Explore all <ArrowRight size={14} /></button>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:gap-5">
+            {[{ title: 'Golden hour', copy: 'Warm notes for late nights', image: '/images/perfume-4.jpg', category: 'Elegant' }, { title: 'Fresh start', copy: 'Citrus that keeps moving', image: '/images/perfume-1.jpg', category: 'Fresh' }, { title: 'After dark', copy: 'A deeper kind of signature', image: '/images/perfume-3.jpg', category: 'Intense' }, { title: 'Softly spoken', copy: 'Petals, musk and skin', image: '/images/perfume-2.jpg', category: 'Romantic' }].map((item) => (
+              <button key={item.title} onClick={() => selectCategory(item.category)} className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-[#f1eee8] text-left">
+                <img src={item.image} alt={`${item.title} perfume`} className="size-full object-cover transition duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/80 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-5"><h3 className="font-serif text-xl sm:text-2xl">{item.title}</h3><p className="mt-1 text-[10px] text-white/75 sm:text-xs">{item.copy}</p></div>
+              </button>
+            ))}
+          </div>
+        </section>
+
         <section id="products" className="scroll-mt-28 bg-white py-14 lg:py-20">
           <div className="mx-auto max-w-[1440px] px-4 lg:px-8">
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
